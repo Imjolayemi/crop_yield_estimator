@@ -9,9 +9,11 @@ st.set_page_config(page_title="Crop Yield Estimator", page_icon="🌾", layout="
 st.title("🌾 AI Crop Yield Estimator")
 st.write("Welcome to the AI Farming Assistant! Enter your farm details below, and the AI will predict how many tonnes of crops you will harvest per hectare.")
 
-# Load model and feature list using joblib
-model = joblib.load("../models/crop_yield_model.pkl")
-feature_names = joblib.load("../models/model_features.pkl")
+# 1. Find the exact folder where this app.py file lives
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 2. Build the exact path to the models folder
+model_path = os.path.join(current_dir, "..", "models", "crop_yield_model.pkl")
+features_path = os.path.join(current_dir, "..", "models", "model_features.pkl")
 
 st.header("📝 Enter Farm Details")
 
