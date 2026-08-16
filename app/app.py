@@ -15,6 +15,12 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(current_dir, "..", "models", "crop_yield_model.pkl")
 features_path = os.path.join(current_dir, "..", "models", "model_features.pkl")
 
+
+# Load model and feature list using our new bulletproof paths
+model = joblib.load(model_path)
+feature_names = joblib.load(features_path)
+
+
 st.header("📝 Enter Farm Details")
 
 col1, col2 = st.columns(2)
